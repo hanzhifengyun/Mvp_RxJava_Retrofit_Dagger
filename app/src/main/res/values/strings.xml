@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Mvp_RxJava_Retrofit_Dagger</string>
+    <string name="network_failure">网络连接错误</string>
+    <string name="cancel">取消</string>
+    <string name="go_setting">去设置</string>
+    <string name="login">登录</string>
+    <string name="hint_login_username">请输入用户名</string>
+    <string name="hint_login_password">请输入密码</string>
+    <string name="empty_string"/>
+    <string name="username_not_empty">用户名不能为空</string>
+</resources>

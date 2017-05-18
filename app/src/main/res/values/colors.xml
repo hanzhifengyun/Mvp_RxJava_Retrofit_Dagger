@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/blue_1abee1</color>
+    <color name="colorPrimaryDark">@color/blue_1abee1</color>
+    <color name="colorAccent">@color/blue_1abee1</color>
+
+    <!--命名方式-->
+    <!--颜色_色值_不透明度(纯色不写色值) 色值小写-->
+
+    <color name="colorBackground">@color/grey_eeeeee</color>
+
+    <color name="colorAccent_30">@color/blue_1abee1_30</color>
+
+    <color name="white">#ffffff</color>
+    <color name="white_85">#d9ffffff</color>
+    <color name="white_70">#b3ffffff</color>
+    <color name="text_black">#3F3F3F</color>
+    <color name="text_gray">#8A8B8B</color>
+
+    <color name="black">#000000</color>
+    <color name="black_20000000">#20000000</color>
+    <color name="black_282828">#282828</color>
+    <color name="black_333333">#333333</color>
+    <color name="black_666666">#666666</color>
+
+    <color name="blue_14b5bf">#14b5bf</color>
+    <color name="blue_1abee1">#1abee1</color>
+    <color name="blue_1abee1_30">#4d1abee1</color>
+    <color name="blue_0d94f2">#0d94f2</color>
+
+    <color name="blue_0d94f2_30">#4d0d94f2</color>
+
+    <color name="blue_0d94f2_90">#E60d94f2</color>
+
+    <color name="grey_888888">#888888</color>
+    <color name="grey_909090">#909090</color>
+    <color name="grey_999999">#999999</color>
+    <color name="grey_aaaaaa">#aaaaaa</color>
+    <color name="grey_bababa">#bababa</color>
+    <color name="grey_bbbbbb">#bbbbbb</color>
+    <color name="grey_d0d8d8d8">#d0d8d8d8</color>
+    <color name="grey_dedfe1">#dedfe1</color>
+    <color name="grey_dfdfdf">#dfdfdf</color>
+    <color name="grey_e9eaec">#e9eaec</color>
+    <color name="grey_eeeeee">#eeeeee</color>
+    <color name="grey_a3a3a3">#a3a3a3</color>
+    <color name="grey_f4f4f4">#f4f4f4</color>
+    <color name="grey_494e50">#494e50</color>
+
+    <color name="orange_ff6600">#ff6600</color>
+    <color name="transparent">#00000000</color>
+
+
+    <!-- ************************************************************分割线************************************************************-->
+    <color name="color_loading">@color/black_20000000</color>
+
+
+    <!--不透明度16进制值-->
+    <!--100% FF-->
+    <!--95%	F2-->
+    <!--90%	E6-->
+    <!--85%	D9-->
+    <!--80%	CC-->
+    <!--75%	BF-->
+    <!--70%	B3-->
+    <!--65%	A6-->
+    <!--60%	99-->
+    <!--55%	8C-->
+    <!--50%	80-->
+    <!--45%	73-->
+    <!--40%	66-->
+    <!--35%	59-->
+    <!--30%	4D-->
+    <!--25%	40-->
+    <!--20%	33-->
+    <!--15%	26-->
+    <!--10%	1A-->
+    <!--5%	0D-->
+    <!--0%	00-->
+</resources>
