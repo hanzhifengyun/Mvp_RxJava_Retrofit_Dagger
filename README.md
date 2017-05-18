@@ -1,2 +1,2 @@
 # Mvp_RxJava_Retrofit_Dagger
-Mvp_RxJava_Retrofit_Dagger组合框架参考
+Mvp_RxJava_Retrofit_Dagger组合框架参考，包含单元测试用例， 有兴趣的朋友可以看看
