@@ -5,7 +5,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
- * 便于管理所有Presenter的Subscriptions
+ * 便于管理所有Presenter的Disposable
  */
 public abstract class BaseRxJavaPresenter<T extends BaseView> implements BasePresenter<T> {
 

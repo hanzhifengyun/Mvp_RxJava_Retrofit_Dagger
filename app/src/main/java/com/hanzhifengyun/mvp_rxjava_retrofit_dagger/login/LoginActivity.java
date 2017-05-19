@@ -66,14 +66,14 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
             @Override
             public void afterTextChanged(Editable s) {
-                mPresenter.onUserNameAfterTextChanged(s.toString());
+                mPresenter.onEdtUserNameChanged(s.toString());
             }
         });
 
         mChbLoginPasswordShow.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mPresenter.showOrHintPassword(isChecked);
+                mPresenter.onBtnShowOrHidePasswordClick(isChecked);
             }
         });
 
@@ -110,7 +110,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @Override
-    public void setPasswordShow() {
+    public void showPassword() {
         //显示密码
         mEdtLoginPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
         mEdtLoginPassword.setSelection(mEdtLoginPassword.getText().length());
@@ -118,7 +118,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @Override
-    public void setPasswordHint() {
+    public void hidePassword() {
         //隐藏密码
         mEdtLoginPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
         mEdtLoginPassword.setSelection(mEdtLoginPassword.getText().length());
@@ -126,12 +126,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     }
 
     @Override
-    public void showUserNameNotEmptyTips() {
+    public void showUserNameEmpty() {
         showShortToast(getString(R.string.username_not_empty));
     }
 
     @Override
-    public void startHomeActivity() {
+    public void openHomePage() {
         HomeActivity.start(this);
     }
 
@@ -140,7 +140,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_login_username_delete:
-                mPresenter.onClearUserNameBtnClick();
+                mPresenter.onBtnClearUserNameClick();
                 break;
             case R.id.btn_login:
                 mPresenter.login(getUser());

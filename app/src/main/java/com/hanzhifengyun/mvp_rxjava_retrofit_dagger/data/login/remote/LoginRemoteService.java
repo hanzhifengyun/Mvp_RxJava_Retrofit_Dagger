@@ -19,7 +19,7 @@ public interface LoginRemoteService {
     /**
      * 登录
      */
-    @POST(IRestApi.URL_API_POST)
+    @POST(IRestApi.URL_API_POST)//替换真实接口后缀
     Observable<BaseModel<User>> loginRemote(@Body RequestBody requestBody);
 
 

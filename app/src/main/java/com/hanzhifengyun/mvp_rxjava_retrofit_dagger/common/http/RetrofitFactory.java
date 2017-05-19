@@ -25,7 +25,10 @@ public class RetrofitFactory {
 
 
 
-    private static Retrofit create(String baseUrl, OkHttpClient okHttpClient, Converter.Factory converterFactory, CallAdapter.Factory adapterFactory) {
+    private static Retrofit create(String baseUrl,
+                                   OkHttpClient okHttpClient,
+                                   Converter.Factory converterFactory,
+                                   CallAdapter.Factory adapterFactory) {
         checkNotNull(baseUrl, "baseUrl cannot be null");
         Retrofit.Builder builder = new Retrofit.Builder();
         if (okHttpClient != null) {

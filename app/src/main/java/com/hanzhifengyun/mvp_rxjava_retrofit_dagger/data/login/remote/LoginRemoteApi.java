@@ -37,6 +37,7 @@ public class LoginRemoteApi implements ILoginRemoteApi {
     }
 
     private RequestBody getLoginRequestBody(User user) {
+        //根据具体接口实现
         return null;
     }
 
@@ -50,6 +51,7 @@ public class LoginRemoteApi implements ILoginRemoteApi {
     }
 
     private RequestBody getLoginOutRequestBody() {
+        //根据具体接口实现
         return null;
     }
 }

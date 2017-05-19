@@ -21,6 +21,7 @@ public class UserModule {
     @Provides
     @Singleton
     LoginRemoteService provideLoginRemoteService(@ResultType Retrofit retrofit) {
+        //这里引用了ResultType的Retrofit实例
         return retrofit.create(LoginRemoteService.class);
     }
 

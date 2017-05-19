@@ -113,64 +113,64 @@ public class LoginPresenterTest {
 
 
     /**
-     * 测试 onUserNameAfterTextChanged()
+     * 测试 onEdtUserNameChanged()
     * 场景：用户名框为空时
     * 验证：清除用户名按钮不显示
     */
     @Test
     public void onUserNameAfterTextChangedEmpty() {
-        mLoginPresenter.onUserNameAfterTextChanged("");
+        mLoginPresenter.onEdtUserNameChanged("");
 
         verify(mLoginView).hideClearUserNameButton();
     }
 
     /**
-     * 测试 onUserNameAfterTextChanged()
+     * 测试 onEdtUserNameChanged()
      * 场景：用户名框不为空时
      * 验证：清除用户名按钮显示
      */
     @Test
     public void onUserNameAfterTextChangedNotEmpty() {
-        mLoginPresenter.onUserNameAfterTextChanged("a");
+        mLoginPresenter.onEdtUserNameChanged("a");
 
         verify(mLoginView).showClearUserNameButton();
     }
 
     /**
-     * 测试 onClearUserNameBtnClick()
+     * 测试 onBtnClearUserNameClick()
      * 场景：用户点击清空用户名
      * 验证：清空用户名
      */
     @Test
     public void onClearUserNameBtnClick() {
-        mLoginPresenter.onClearUserNameBtnClick();
+        mLoginPresenter.onBtnClearUserNameClick();
 
         verify(mLoginView).setUserNameEmpty();
     }
 
     /**
-     * 测试 showOrHintPassword(true)
+     * 测试 onBtnShowOrHidePasswordClick(true)
      * 场景：用户点击显示密码
      * 验证：密码明文显示
      */
     @Test
     public void onShowPasswordButtonClickTrue() {
-        mLoginPresenter.showOrHintPassword(true);
+        mLoginPresenter.onBtnShowOrHidePasswordClick(true);
 
-        verify(mLoginView).setPasswordShow();
+        verify(mLoginView).showPassword();
     }
 
 
     /**
-     * 测试 showOrHintPassword(false)
+     * 测试 onBtnShowOrHidePasswordClick(false)
      * 场景：用户点击隐藏密码
      * 验证：密码隐藏显示
      */
     @Test
     public void onShowPasswordButtonClickFalse() {
-        mLoginPresenter.showOrHintPassword(false);
+        mLoginPresenter.onBtnShowOrHidePasswordClick(false);
 
-        verify(mLoginView).setPasswordHint();
+        verify(mLoginView).hidePassword();
     }
 
     /**
@@ -182,7 +182,7 @@ public class LoginPresenterTest {
     public void loginWithUserNameIsEmpty() {
         mLoginPresenter.login(mEmptyNameUser);
 
-        verify(mLoginView).showUserNameNotEmptyTips();
+        verify(mLoginView).showUserNameEmpty();
         verify(mLoginRepository, never()).loginRemote(mEmptyNameUser);
     }
 
@@ -198,7 +198,7 @@ public class LoginPresenterTest {
 
         mLoginPresenter.login(mUser);
 
-        verify(mLoginView, never()).showUserNameNotEmptyTips();
+        verify(mLoginView, never()).showUserNameEmpty();
 
         verify(mLoginView).showLoadingDialog(anyBoolean());
 
@@ -256,7 +256,7 @@ public class LoginPresenterTest {
         verify(mLoginView, never()).showNetWorkError();
 
         verify(mLoginView).hideLoadingDialog();
-        verify(mLoginView).startHomeActivity();
+        verify(mLoginView).openHomePage();
         verify(mLoginView).finishActivity();
     }
 

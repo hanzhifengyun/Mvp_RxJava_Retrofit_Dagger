@@ -1,5 +1,8 @@
 package com.hanzhifengyun.mvp_rxjava_retrofit_dagger.base;
 
+/**
+ * View基类
+ */
 public interface BaseView {
 
     /**

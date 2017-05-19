@@ -35,14 +35,14 @@ public class HttpModule {
     }
 
     @Provides
-    @ResultType
+    @ResultType //表示直接返回对象类型
     @Singleton
     Retrofit provideResultRetrofit(OkHttpClient okHttpClient) {
         return RetrofitFactory.createGsonWithRxJavaRetrofit(baseUrl, okHttpClient);
     }
 
     @Provides
-    @StringType
+    @StringType //表示返回Json String类型
     @Singleton
     Retrofit provideStringRetrofit(OkHttpClient okHttpClient) {
         return RetrofitFactory.createStringWithRxJavaRetrofit(baseUrl, okHttpClient);

@@ -20,7 +20,6 @@ import static com.hanzhifengyun.mvp_rxjava_retrofit_dagger.util.Preconditions.ch
 /**
  * 登录
  */
-
 public class LoginPresenter extends BaseRxJavaPresenter<LoginContract.View> implements LoginContract.Presenter {
     private LoginRepository mLoginRepository;
     private ISchedulerProvider mSchedulerProvider;
@@ -32,9 +31,10 @@ public class LoginPresenter extends BaseRxJavaPresenter<LoginContract.View> impl
         mSchedulerProvider = checkNotNull(schedulerProvider, "schedulerProvider cannot be null");
     }
 
+
     @Override
     public void onStart() {
-       mLoginRepository.getUser()
+        mLoginRepository.getUser()
                 .subscribeOn(mSchedulerProvider.io())
                 .observeOn(mSchedulerProvider.ui())
                 .subscribe(new OnceObserver<User>() {
@@ -46,8 +46,9 @@ public class LoginPresenter extends BaseRxJavaPresenter<LoginContract.View> impl
 
     }
 
+
     @Override
-    public void onUserNameAfterTextChanged(String userName) {
+    public void onEdtUserNameChanged(String userName) {
         if (!TextUtil.isEmpty(userName)) {
             mView.showClearUserNameButton();
         } else {
@@ -56,23 +57,24 @@ public class LoginPresenter extends BaseRxJavaPresenter<LoginContract.View> impl
     }
 
     @Override
-    public void onClearUserNameBtnClick() {
+    public void onBtnClearUserNameClick() {
         mView.setUserNameEmpty();
     }
 
     @Override
-    public void showOrHintPassword(boolean visible) {
-        if (visible) {
-            mView.setPasswordShow();
+    public void onBtnShowOrHidePasswordClick(boolean needShow) {
+        if (needShow) {
+            mView.showPassword();
         } else {
-            mView.setPasswordHint();
+            mView.hidePassword();
         }
     }
 
     @Override
     public void login(User user) {
+        //验证用户名不能为空
         if (user.isUserNameEmpty()) {
-            mView.showUserNameNotEmptyTips();
+            mView.showUserNameEmpty();
             return;
         }
         mLoginRepository.loginRemote(user)
@@ -80,6 +82,7 @@ public class LoginPresenter extends BaseRxJavaPresenter<LoginContract.View> impl
                 .doOnNext(new Consumer<User>() {
                     @Override
                     public void accept(User value) throws Exception {
+                        //子线程保存用户数据
                         value.setLogin(true);
                         mLoginRepository.saveUser(value);
                     }
@@ -88,7 +91,8 @@ public class LoginPresenter extends BaseRxJavaPresenter<LoginContract.View> impl
                 .subscribe(new OnceLoadingObserver<User>(mView) {
                     @Override
                     protected void onResponse(User value) {
-                        mView.startHomeActivity();
+                        //UI操作UI线程
+                        mView.openHomePage();
                         mView.finishActivity();
                     }
                 });

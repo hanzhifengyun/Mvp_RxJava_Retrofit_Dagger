@@ -18,11 +18,11 @@ package com.hanzhifengyun.mvp_rxjava_retrofit_dagger.di.components;
 import android.content.Context;
 
 import com.hanzhifengyun.mvp_rxjava_retrofit_dagger.application.AndroidApplication;
-import com.hanzhifengyun.mvp_rxjava_retrofit_dagger.application.ApplicationRepository;
 import com.hanzhifengyun.mvp_rxjava_retrofit_dagger.data.login.LoginRepository;
 import com.hanzhifengyun.mvp_rxjava_retrofit_dagger.di.modules.ApplicationModule;
 import com.hanzhifengyun.mvp_rxjava_retrofit_dagger.di.modules.HttpModule;
 import com.hanzhifengyun.mvp_rxjava_retrofit_dagger.di.modules.UserModule;
+import com.hanzhifengyun.mvp_rxjava_retrofit_dagger.di.modules.UtilModule;
 import com.hanzhifengyun.mvp_rxjava_retrofit_dagger.util.handler.IJsonHandler;
 import com.hanzhifengyun.mvp_rxjava_retrofit_dagger.util.schedulers.ISchedulerProvider;
 
@@ -35,7 +35,7 @@ import dagger.Component;
  */
 @Singleton // Constraints this component to one-per-application or unscoped bindings.
 @Component(modules = {ApplicationModule.class,
-        HttpModule.class,
+        HttpModule.class, UtilModule.class,
         UserModule.class})
 public interface ApplicationComponent {
 
@@ -52,8 +52,6 @@ public interface ApplicationComponent {
      */
     ISchedulerProvider getSchedulerProvider();
 
-
-    ApplicationRepository getApplicationRepository();
 
     LoginRepository getLoginRepository();
 
